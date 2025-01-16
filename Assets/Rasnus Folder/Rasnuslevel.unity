@@ -134,9 +134,11 @@ GameObject:
   - component: {fileID: 73613013}
   - component: {fileID: 73613016}
   - component: {fileID: 73613015}
+  - component: {fileID: 73613017}
+  - component: {fileID: 73613018}
   m_Layer: 0
   m_Name: EVILCow
-  m_TagString: Untagged
+  m_TagString: EnemyCow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,6 +234,46 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &73613017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73613012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d8f6f666d952b84ca14c12aadceae61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+--- !u!50 &73613018
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73613012}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &187012254
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,8 +799,10 @@ MonoBehaviour:
   firePoint: {fileID: 920740469}
   lineRenderer: {fileID: 1606418938}
   rayLength: 25
-  Bullet: {fileID: 1664757416472113663, guid: e5f25a6ffafaa534ea17fd253e85c4ab, type: 3}
+  BulletPrefab: {fileID: 1664757416472113663, guid: e5f25a6ffafaa534ea17fd253e85c4ab, type: 3}
+  bulletSpeed: 10
   inventory: {fileID: 652733247}
+  fireRate: 0.5
 --- !u!58 &652733246
 CircleCollider2D:
   m_ObjectHideFlags: 0
