@@ -21,7 +21,7 @@ public class DisplayStars : MonoBehaviour
         if (usesTime)
         {
             float howLong = PlayerPrefs.GetFloat("HowLong", 0);
-            theStarMessageText.text = "You survived for " + howLong.ToString("F0") + " seconds!";
+            theStarMessageText.text = "You escaped with time of " + howLong.ToString("F0") + " seconds!";
         }
 
         if(usesStars)
