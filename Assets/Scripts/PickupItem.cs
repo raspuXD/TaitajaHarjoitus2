@@ -15,11 +15,12 @@ public class PickupItem : MonoBehaviour
     public int amount = 1;      // The amount of items to add when picked up
 
     private Inventory inventory;  // Reference to the player's inventory
-
+    private PointSystem points;
     void Start()
     {
         // Get the inventory script from the player (assuming player object has Inventory script attached)
-        inventory = GameObject.FindObjectOfType<Inventory>(); 
+        inventory = GameObject.FindObjectOfType<Inventory>();
+        points = FindObjectOfType<PointSystem>();
     }
 
     // Trigger event when the player enters the pickup area
@@ -36,7 +37,7 @@ public class PickupItem : MonoBehaviour
 
                 case ItemType.Money:
                     // You can implement money handling similarly if you have a money system
-                    Debug.Log("Money picked up!");
+                    points.points++;
                     break;
 
                 case ItemType.Bullets:

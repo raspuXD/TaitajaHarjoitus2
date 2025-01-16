@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class PointSystem : MonoBehaviour
@@ -7,6 +8,8 @@ public class PointSystem : MonoBehaviour
     public int points = 0;
     public int stars = 0;
     public float timePassed = 0f;
+
+    public TMP_Text thePointsText;
 
     public int[] howManyPointsPerStar;
     private bool[] starAwarded;
@@ -19,6 +22,8 @@ public class PointSystem : MonoBehaviour
 
     private void Update()
     {
+        thePointsText.text = points.ToString() + "€";
+
         if (usesTime)
         {
             timePassed += Time.deltaTime;
@@ -77,7 +82,7 @@ public class PointSystem : MonoBehaviour
         {
             float lastHighTime = PlayerPrefs.GetFloat("HighestTime", 0);
 
-            if (timePassed > lastHighTime)
+            if (timePassed < lastHighTime)
             {
                 PlayerPrefs.SetFloat("HighestTime", timePassed);
             }

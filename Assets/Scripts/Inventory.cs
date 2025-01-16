@@ -11,7 +11,7 @@ public class Inventory : MonoBehaviour
     public int Milk = 5;  // Initial milk amount
     public int Bullets = 10;  // Initial bullet count
 
-public Color darkRed;
+    public Color darkRed;
     // UI components
     public Image insanityFillImage;  // Image component to represent insanity as a fill (instead of Slider)
 
@@ -54,12 +54,12 @@ public Color darkRed;
     {
         if (milkText != null)
         {
-            milkText.text = $"Milk: {Milk}";  // Update the milk amount text
+            milkText.text = Milk.ToString();  // Update the milk amount text
         }
 
         if (bulletsText != null)
         {
-            bulletsText.text = $"Bullets: {Bullets}";  // Update the bullets amount text
+            bulletsText.text = Bullets.ToString();  // Update the bullets amount text
         }
     }
 

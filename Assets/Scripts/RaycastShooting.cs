@@ -16,8 +16,17 @@ public class RaycastShooting : MonoBehaviour
 
     void Update()
     {
-        // Check for shooting input and handle shooting logic, only if cooldown has passed
         Shoot();
+
+        if(inventory.Bullets > 0)
+        {
+            ShootRaycast();
+            lineRenderer.enabled = true;
+        }
+        else
+        {
+            lineRenderer.enabled = false;
+        }
     }
 
     public void Shoot()
@@ -59,7 +68,14 @@ public class RaycastShooting : MonoBehaviour
         Vector2 firePointPosition = firePoint.position;
         Vector2 direction = firePoint.up;
 
-        RaycastHit2D hit = Physics2D.Raycast(firePointPosition, direction, rayLength);
+        // Get the layer index for NPC and Player
+        int npcLayer = LayerMask.NameToLayer("NPC");
+        int playerLayer = LayerMask.NameToLayer("Player");
+
+        // Create a mask that excludes both the NPC and Player layers
+        LayerMask layerMask = ~(1 << npcLayer | 1 << playerLayer);
+
+        RaycastHit2D hit = Physics2D.Raycast(firePointPosition, direction, rayLength, layerMask);
 
         if (hit)
         {
@@ -70,6 +86,7 @@ public class RaycastShooting : MonoBehaviour
             DrawLine(firePointPosition, firePointPosition + direction * rayLength);
         }
     }
+
 
     void DrawLine(Vector2 start, Vector2 end)
     {
