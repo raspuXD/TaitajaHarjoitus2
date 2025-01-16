@@ -20,11 +20,22 @@ public class TutorialPopUp : MonoBehaviour
     [Header("If want to in the start")]
     public bool showInStart = false;
     public string wantToWriteInStart;
+    bool hasBeenShow;
 
-    private void Start()
+    private IEnumerator Start()
     {
         if(showInStart)
         {
+            yield return new WaitForSeconds(1.5f);
+            StartThePopUp(wantToWriteInStart);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player") && !hasBeenShow)
+        {
+            hasBeenShow = true;
             StartThePopUp(wantToWriteInStart);
         }
     }
