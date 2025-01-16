@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2255012815439261907}
   - component: {fileID: 952677175824077526}
   - component: {fileID: 4094380859699494057}
+  - component: {fileID: 2997054032499366276}
   m_Layer: 0
   m_Name: EVILCow
   m_TagString: EnemyCow
@@ -116,7 +117,7 @@ MonoBehaviour:
   movementSpeed: 5
   rotationSpeed: 100
   stopDistance: 2
-  cowSwitchDistance: 9.79
+  cowSwitchDistance: 4.5
 --- !u!114 &1434171771182689861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d8f6f666d952b84ca14c12aadceae61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 50
   theCoinPrefab: {fileID: 3608515741267779281, guid: ef0f5128dbdfbf94abe110e7552d84cc, type: 3}
   spawnPoint1: {fileID: 8003865907423462987}
   spawnPoint2: {fileID: 5389033100104718623}
@@ -173,6 +174,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e84f96238b34a428cc733534ea5fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shakeDuration: 0.5
+  shakeMagnitude: 0.1
+  camShake: {fileID: 0}
+  source: {fileID: 2997054032499366276}
 --- !u!70 &4094380859699494057
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -208,6 +213,102 @@ CapsuleCollider2D:
   m_Offset: {x: -0.08374073, y: 0.53}
   m_Size: {x: 4.8, y: 1.8}
   m_Direction: 1
+--- !u!82 &2997054032499366276
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139852845785281866}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 4010118003451714804, guid: 7eb39c4b06a25de4e8a44cd987064223, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 6abee3ec88437e54f8ffca1d24500822, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.36
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2732768238406288523
 GameObject:
   m_ObjectHideFlags: 0

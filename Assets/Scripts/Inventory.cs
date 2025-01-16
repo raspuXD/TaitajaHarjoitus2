@@ -24,6 +24,7 @@ public class Inventory : MonoBehaviour
     public float InsanityDecreaseRate = 0.5f;  // Rate of insanity decrease
     SceneHandler sceneHandler;
 
+
     private void Start()
     {
         sceneHandler = FindObjectOfType<SceneHandler>();

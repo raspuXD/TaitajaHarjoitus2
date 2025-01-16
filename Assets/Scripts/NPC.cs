@@ -12,6 +12,8 @@ public class NPC : MonoBehaviour
     public string whatToSayKai, whatToSayJuho, whatToSayKalle, whatToSayPetteri;
     public TMP_Text speakText;
 
+    public AudioSource source;
+
     public bool isKai, isJuho, isKalle, isPetteri;
     bool canInteract;
 
@@ -32,7 +34,7 @@ public class NPC : MonoBehaviour
                 speakText.text = whatToSayKai;
                 if(Input.GetKeyDown(KeyCode.E))
                 {
-                    if(points.points >= 500)
+                    if(points.points >= 200)
                     {
                         points.REMEMBERTOCALLIFSCENESWITCH();
                         sceneHandler.LoadSceneNamed("win");
@@ -58,6 +60,7 @@ public class NPC : MonoBehaviour
                 {
                     if (points.points >= 3)
                     {
+                        source.Play();
                         theInventoty.Bullets++;
                         points.points -= 3;
                     }

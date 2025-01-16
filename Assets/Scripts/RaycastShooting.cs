@@ -14,6 +14,11 @@ public class RaycastShooting : MonoBehaviour
     public float fireRate = 0.5f; // Delay between shots (in seconds)
     private float nextFireTime = 0f; // Time at which the next shot is allowed
 
+    public float shakeDuration;
+    public float shakeMagnitude;
+    public CameraShake camShake;
+    public AudioSource source;
+
     void Update()
     {
         Shoot();
@@ -41,6 +46,7 @@ public class RaycastShooting : MonoBehaviour
                     // Instantiate a bullet and shoot it
                     GameObject bullet = Instantiate(BulletPrefab, firePoint.position, firePoint.rotation);
                     Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                    camShake.TriggerShake(shakeDuration, shakeMagnitude);
                     if (rb != null)
                     {
                         rb.velocity = firePoint.up * bulletSpeed;  // Shoot the bullet in the firePoint's up direction
@@ -51,7 +57,7 @@ public class RaycastShooting : MonoBehaviour
 
                     // Set the time for the next allowed shot
                     nextFireTime = Time.time + fireRate;
-
+                    source.Play();
                     // You can optionally add more behavior here like playing shooting sound, etc.
                 }
                 else

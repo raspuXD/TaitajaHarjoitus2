@@ -3703,6 +3703,7 @@ MonoBehaviour:
   whatToSayKalle: 
   whatToSayPetteri: Hel- Hello my fri- friend! How ar- are you?
   speakText: {fileID: 1669002817}
+  source: {fileID: 0}
   isKai: 0
   isJuho: 0
   isKalle: 0
@@ -7822,6 +7823,7 @@ GameObject:
   - component: {fileID: 652733246}
   - component: {fileID: 652733247}
   - component: {fileID: 652733248}
+  - component: {fileID: 652733249}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -7906,6 +7908,10 @@ MonoBehaviour:
   bulletSpeed: 10
   inventory: {fileID: 652733247}
   fireRate: 0.5
+  shakeDuration: 0.08
+  shakeMagnitude: 0.2
+  camShake: {fileID: 1903799282}
+  source: {fileID: 652733249}
 --- !u!58 &652733246
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7955,7 +7961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Insanity: 0
   Milk: 0
-  Bullets: 8
+  Bullets: 10
   darkRed: {r: 0.6415094, g: 0.11196155, b: 0.11196155, a: 0}
   insanityFillImage: {fileID: 1245176568}
   milkText: {fileID: 75582227}
@@ -7982,6 +7988,102 @@ MonoBehaviour:
   timePassed: 0
   thePointsText: {fileID: 41344077}
   howManyPointsPerStar: 
+--- !u!82 &652733249
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652733241}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 4010118003451714804, guid: 7eb39c4b06a25de4e8a44cd987064223, type: 2}
+  m_audioClip: {fileID: 8300000, guid: e6d034007f885d841a211a76197ed21d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &656181129
 GameObject:
   m_ObjectHideFlags: 0
@@ -14430,6 +14532,7 @@ GameObject:
   - component: {fileID: 1346166983}
   - component: {fileID: 1346166982}
   - component: {fileID: 1346166986}
+  - component: {fileID: 1346166987}
   m_Layer: 8
   m_Name: Bullets Kalle
   m_TagString: Untagged
@@ -14597,10 +14700,107 @@ MonoBehaviour:
   whatToSayKalle: "For 3\u20AC i can give you one bullet! take it or leave it"
   whatToSayPetteri: 
   speakText: {fileID: 587678787}
+  source: {fileID: 0}
   isKai: 0
   isJuho: 0
   isKalle: 1
   isPetteri: 0
+--- !u!82 &1346166987
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346166981}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4d8192a29919841459d0fcc0351aad5b, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1348478023
 GameObject:
   m_ObjectHideFlags: 0
@@ -17888,11 +18088,12 @@ MonoBehaviour:
   points: {fileID: 0}
   theName: {fileID: 543073523}
   theSpeakBubble: {fileID: 2023324758}
-  whatToSayKai: "I Can fix the car for 500\u20AC so you can escape!"
+  whatToSayKai: "I Can fix the car for 200\u20AC so you can escape!"
   whatToSayJuho: 
   whatToSayKalle: 
   whatToSayPetteri: 
   speakText: {fileID: 222567267}
+  source: {fileID: 0}
   isKai: 1
   isJuho: 0
   isKalle: 0
@@ -19122,6 +19323,7 @@ MonoBehaviour:
   whatToSayKalle: 
   whatToSayPetteri: 
   speakText: {fileID: 1205180552}
+  source: {fileID: 0}
   isKai: 0
   isJuho: 1
   isKalle: 0
@@ -21897,6 +22099,7 @@ GameObject:
   - component: {fileID: 1903799279}
   - component: {fileID: 1903799278}
   - component: {fileID: 1903799281}
+  - component: {fileID: 1903799282}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -22022,6 +22225,18 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1903799282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903799277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d59226a544f0f34ba0aee6943c6845e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1915392560
 GameObject:
   m_ObjectHideFlags: 0
