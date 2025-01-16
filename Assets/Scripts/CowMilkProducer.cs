@@ -7,8 +7,11 @@ public class CowMilkProducer : MonoBehaviour
     public float spawnInterval = 5f; // Time between each milk spawn
 
     public GameObject lastMilk;
-
+    public GameObject porheloDied;
     private float lastSpawnTime;
+    public Inventory inventory;
+    public int howManyTimesHit = 0;
+
 
     void Update()
     {
@@ -26,5 +29,15 @@ public class CowMilkProducer : MonoBehaviour
     void SpawnMilk()
     {
         lastMilk = Instantiate(milkPrefab, spawnPoint.position, Quaternion.identity);
+    }
+
+    public void DIE()
+    {
+        if(howManyTimesHit >= 3)
+        {
+            porheloDied.SetActive(true);
+            inventory.InsanityIncreaseRate = 5f;
+            Destroy(gameObject);
+        }
     }
 }

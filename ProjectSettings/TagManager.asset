@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EnemyCow
   - Milk
+  - Cow
   layers:
   - Default
   - TransparentFX

@@ -28,14 +28,22 @@ public class Enemy_Nav : MonoBehaviour
             CheckCowProximity();
         }
 
+        if(cowRef == null)
+        {
+            isCowTarget = false;
+        }
+
         FollowTarget();
     }
 
     private void CheckCowProximity()
     {
-        if (Vector3.Distance(transform.position, cowRef.position) <= cowSwitchDistance)
+        if(cowRef != null)
         {
-            isCowTarget = true;
+            if (Vector3.Distance(transform.position, cowRef.position) <= cowSwitchDistance)
+            {
+                isCowTarget = true;
+            }
         }
     }
 

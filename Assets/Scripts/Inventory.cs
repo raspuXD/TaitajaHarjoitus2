@@ -22,6 +22,12 @@ public class Inventory : MonoBehaviour
     // Insanity dynamics
     public float InsanityIncreaseRate = 1f;  // Rate of insanity increase per second
     public float InsanityDecreaseRate = 0.5f;  // Rate of insanity decrease
+    SceneHandler sceneHandler;
+
+    private void Start()
+    {
+        sceneHandler = FindObjectOfType<SceneHandler>();
+    }
 
     // Called once per frame
     void Update()
@@ -30,6 +36,10 @@ public class Inventory : MonoBehaviour
         if (Insanity < 100f)  // Make sure insanity does not exceed 100
         {
             Insanity += InsanityIncreaseRate * Time.deltaTime;
+        }
+        else
+        {
+            sceneHandler.LoadSceneNamed("gameOver");
         }
 
         // Update the insanity fill image's fill amount based on the current Insanity value
@@ -45,6 +55,18 @@ public class Inventory : MonoBehaviour
             insanityFillImage.color = Color.Lerp(Color.red, darkRed, insanityPercentage);  // Lerp color from green to red
         }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (Milk > 0)
+            {
+                DecreaseMilk(1);  // Drink one milk
+                DecreaseInsanity(10f);  // Reduce insanity by 10
+            }
+            else
+            {
+                Debug.Log("No milk to drink!");
+            }
+        }
         // Update the Milk and Bullets text displays
         UpdateInventoryText();
     }
