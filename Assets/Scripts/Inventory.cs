@@ -11,9 +11,9 @@ public class Inventory : MonoBehaviour
     public int Milk = 5;  // Initial milk amount
     public int Bullets = 10;  // Initial bullet count
 
+public Color darkRed;
     // UI components
-    public Slider insanitySlider;  // Reference to the Slider component
-    public Image insanityFillImage;  // For customizing with an Image bar (optional)
+    public Image insanityFillImage;  // Image component to represent insanity as a fill (instead of Slider)
 
     // TextMeshPro components to display Milk and Bullets
     public TMP_Text milkText;  // TextMeshPro reference for milk amount
@@ -32,17 +32,17 @@ public class Inventory : MonoBehaviour
             Insanity += InsanityIncreaseRate * Time.deltaTime;
         }
 
-        // Update the insanity slider's value based on the current Insanity
-        if (insanitySlider != null)
+        // Update the insanity fill image's fill amount based on the current Insanity value
+        if (insanityFillImage != null)
         {
-            insanitySlider.value = Insanity;
+            insanityFillImage.fillAmount = Insanity / 100f;  // Normalize Insanity to a 0-1 range
         }
 
-        // Optional: Customize the fill color of the bar (e.g., make it red as insanity increases)
+        // Optional: Customize the fill color of the insanity bar (e.g., make it red as insanity increases)
         if (insanityFillImage != null)
         {
             float insanityPercentage = Insanity / 100f;  // Normalize Insanity to a 0-1 range
-            insanityFillImage.color = Color.Lerp(Color.green, Color.red, insanityPercentage);
+            insanityFillImage.color = Color.Lerp(Color.red, darkRed, insanityPercentage);  // Lerp color from green to red
         }
 
         // Update the Milk and Bullets text displays
