@@ -43,7 +43,6 @@ public class CowMonster : MonoBehaviour
             CowMilkProducer hoho = collision.GetComponent<CowMilkProducer>();
             if (hoho != null)
             {
-                hoho.howManyTimesHit++;
                 hoho.DIE();
                 Destroy(gameObject);
             }

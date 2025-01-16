@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CowMilkProducer : MonoBehaviour
@@ -10,9 +12,14 @@ public class CowMilkProducer : MonoBehaviour
     public GameObject porheloDied;
     private float lastSpawnTime;
     public Inventory inventory;
-    public int howManyTimesHit = 0;
 
-
+    public AudioSource source;
+    public AudioSource EvilMusic;
+    public void Start()
+    {
+        source.Play();
+        PlayAudioRandomly();
+    }
     void Update()
     {
         // Only start counting down if there is no milk
@@ -26,6 +33,20 @@ public class CowMilkProducer : MonoBehaviour
         }
     }
 
+    private IEnumerator PlayAudioRandomly()
+    {
+        while (true)
+        {
+            // Wait for a random time between 3 and 7 seconds
+            yield return new WaitForSeconds(Random.Range(5f, 15f));
+
+            // Play the audio if it's not already playing
+            if (!source.isPlaying)
+            {
+                source.Play();
+            }
+        }
+    }
     void SpawnMilk()
     {
         lastMilk = Instantiate(milkPrefab, spawnPoint.position, Quaternion.identity);
@@ -33,11 +54,9 @@ public class CowMilkProducer : MonoBehaviour
 
     public void DIE()
     {
-        if(howManyTimesHit >= 3)
-        {
+            //EvilMusic.Play();
             porheloDied.SetActive(true);
             inventory.InsanityIncreaseRate = 5f;
             Destroy(gameObject);
-        }
     }
 }

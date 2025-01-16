@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 1
-  amount: 1
+  amount: 10
 --- !u!58 &6295105910039552506
 CircleCollider2D:
   m_ObjectHideFlags: 0
